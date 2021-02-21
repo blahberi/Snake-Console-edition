@@ -1,5 +1,4 @@
 ﻿using System;
-using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
@@ -14,9 +13,7 @@ namespace Snake_Console_edition_
 
         private static void DrawScreen()
         {
-            //Console.Clear();
-            Console.SetCursorPosition(_left, _top);
-            Console.Write('*');
+            Console.Write("hello bananas!");
         }
     }
 }
