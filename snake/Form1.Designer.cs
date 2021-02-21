@@ -29,21 +29,43 @@ namespace snake
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.board = new System.Windows.Forms.Panel();
+            this.updateTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
+            // 
+            // board
+            // 
+            this.board.BackColor = System.Drawing.Color.Black;
+            this.board.Location = new System.Drawing.Point(12, 12);
+            this.board.Name = "board";
+            this.board.Size = new System.Drawing.Size(776, 383);
+            this.board.TabIndex = 0;
+            this.board.Paint += new System.Windows.Forms.PaintEventHandler(this.board_Paint);
+            // 
+            // updateTimer
+            // 
+            this.updateTimer.Interval = 1000;
+            this.updateTimer.Tick += new System.EventHandler(this.updateTimer_Tick);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.board);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Panel board;
+        private System.Windows.Forms.Timer updateTimer;
     }
 }
 

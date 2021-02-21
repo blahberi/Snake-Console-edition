@@ -15,6 +15,8 @@ namespace snake
             get => this.Corners.First().Direction;
         }
 
+        public Point[] SnakeCorners => this.Corners.Select(c => c.Position).ToArray();
+
         private Corner Head => this.Corners.Last();
 
         private Corner Tail => this.Corners.First();
@@ -24,8 +26,8 @@ namespace snake
         public Snake(Point initialPosition)
         {
             this.Corners = new List<Corner>();
-            this.Corners.Add(new Corner(initialPosition + new Size(3, 0), Direction.Left));
-            this.Corners.Add(new Corner(initialPosition, Direction.Left)); 
+            this.Corners.Add(new Corner(initialPosition, Direction.Right));
+            this.Corners.Add(new Corner(initialPosition + new Size(3, 0), Direction.Right));
         }
 
         public void Update()
@@ -41,7 +43,13 @@ namespace snake
 
         public void ChangeDirection(Direction direction)
         {
-            this.Corners.Add(new Corner(this.Head.Position, direction));
+            System.Diagnostics.Debug.WriteLine($"ChangeDirection: {direction}");
+            if(this.Direction != direction && !this.Direction.IsOpposite(direction))
+            {
+                System.Diagnostics.Debug.WriteLine($"Adding corner");
+                this.Head.Direction = direction;
+                this.Corners.Add(new Corner(this.Head.Position, direction));
+            }
         }
     }
 }
