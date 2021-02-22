@@ -59,9 +59,20 @@ namespace snake
 
         public bool IsCollided(Point p)
         {
-            if (p.X == this.Position.X && p.Y == this.Position.Y)
+            Point? lastCorner = null;
+            foreach (Point c in this.SnakeCorners)
             {
-                return true;
+                if (lastCorner != null && c != this.Head.Position)
+                {
+                    if (p.X >= Math.Min(c.X, lastCorner.Value.X) && p.X <= Math.Max(c.X, lastCorner.Value.X))
+                    {
+                        if (p.Y >= Math.Min(c.Y, lastCorner.Value.Y) && p.Y <= Math.Min(c.Y, lastCorner.Value.Y))
+                        {
+                            return true;
+                        }
+                    }
+                }
+                lastCorner = c;
             }
             return false;
         }

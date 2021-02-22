@@ -15,7 +15,7 @@ namespace snake
     public partial class Form1 : Form
     {
 
-        private readonly Snake snake;
+        private Snake snake;
         private Direction? newDirection;
         private Apple apple;
 
@@ -26,7 +26,7 @@ namespace snake
 
             this.newDirection = null;
             this.snake = new Snake(new Point(3, 3));
-            this.apple = new Apple(r.Next(0, 49), r.Next(0, 27));
+            this.apple = new Apple(r.Next(0, 35), r.Next(0, 30));
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -36,10 +36,11 @@ namespace snake
 
         private void board_Paint(object sender, PaintEventArgs e)
         {
-            e.Graphics.ScaleTransform(16, 16);
+            e.Graphics.ScaleTransform(20, 20);
 
             e.Graphics.SmoothingMode = SmoothingMode.None;
             e.Graphics.FillRectangle(Brushes.Red, apple.Position.X, apple.Position.Y, 1, 1);
+            
 
             Point? lastCorner = null;
             foreach (Point c in this.snake.SnakeCorners)
@@ -66,11 +67,16 @@ namespace snake
         {
             bool moveTail = true;
             // Check for collions
-            if (snake.IsCollided(apple.Position))
+            if (apple.IsCollided(snake.Position))
             {
                 moveTail = false;
-                apple.Position.X = r.Next(0, 49);
-                apple.Position.Y = r.Next(0, 27);
+                apple.Position.X = r.Next(0, 35);
+                apple.Position.Y = r.Next(0, 30);
+            }
+
+            if (snake.IsCollided(snake.Position))
+            {
+                Die();
             }
 
             if (this.newDirection != null)
@@ -103,6 +109,14 @@ namespace snake
                     this.newDirection = Direction.Right;
                     break;
             }
+        }
+        
+        private void Die()
+        {
+            updateTimer.Enabled = false;
+            MessageBox.Show("GAME OVER :(");
+            snake = new Snake(new Point(3, 3));
+            updateTimer.Enabled = true;
         }
     }
 }

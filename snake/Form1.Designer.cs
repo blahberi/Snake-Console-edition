@@ -37,9 +37,10 @@ namespace snake
             // board
             // 
             this.board.BackColor = System.Drawing.Color.Black;
+            this.board.Dock = System.Windows.Forms.DockStyle.Fill;
             this.board.Location = new System.Drawing.Point(0, 0);
             this.board.Name = "board";
-            this.board.Size = new System.Drawing.Size(802, 451);
+            this.board.Size = new System.Drawing.Size(730, 625);
             this.board.TabIndex = 0;
             this.board.Paint += new System.Windows.Forms.PaintEventHandler(this.board_Paint);
             // 
@@ -52,7 +53,7 @@ namespace snake
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(730, 625);
             this.Controls.Add(this.board);
             this.Name = "Form1";
             this.Text = "Form1";
