@@ -37,15 +37,15 @@ namespace snake
             // board
             // 
             this.board.BackColor = System.Drawing.Color.Black;
-            this.board.Location = new System.Drawing.Point(12, 12);
+            this.board.Location = new System.Drawing.Point(0, 0);
             this.board.Name = "board";
-            this.board.Size = new System.Drawing.Size(776, 383);
+            this.board.Size = new System.Drawing.Size(802, 451);
             this.board.TabIndex = 0;
             this.board.Paint += new System.Windows.Forms.PaintEventHandler(this.board_Paint);
             // 
             // updateTimer
             // 
-            this.updateTimer.Interval = 1000;
+            this.updateTimer.Interval = 250;
             this.updateTimer.Tick += new System.EventHandler(this.updateTimer_Tick);
             // 
             // Form1

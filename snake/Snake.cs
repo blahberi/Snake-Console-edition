@@ -8,12 +8,14 @@ using System.Threading.Tasks;
 
 namespace snake
 {
-    class Snake
+    class Snake : ICollidable
     {
         public Direction Direction
         {
             get => this.Corners.First().Direction;
         }
+
+        public Point Position => this.Head.Position;
 
         public Point[] SnakeCorners => this.Corners.Select(c => c.Position).ToArray();
 
@@ -27,7 +29,7 @@ namespace snake
         {
             this.Corners = new List<Corner>();
             this.Corners.Add(new Corner(initialPosition, Direction.Right));
-            this.Corners.Add(new Corner(initialPosition + new Size(3, 0), Direction.Right));
+            this.Corners.Add(new Corner(initialPosition + new Size(30, 0), Direction.Right));
         }
 
         public void Update()
@@ -44,7 +46,7 @@ namespace snake
         public void ChangeDirection(Direction direction)
         {
             System.Diagnostics.Debug.WriteLine($"ChangeDirection: {direction}");
-            if(this.Direction != direction && !this.Direction.IsOpposite(direction))
+            if(this.Head.Direction != direction && !this.Head.Direction.IsOpposite(direction))
             {
                 System.Diagnostics.Debug.WriteLine($"Adding corner");
                 this.Head.Direction = direction;
