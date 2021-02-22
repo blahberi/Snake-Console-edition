@@ -9,18 +9,22 @@ namespace snake
 {
     class Apple : ICollidable
     {
-        public Point point;
+        public Point Position;
 
         public Apple(int x, int y)
         {
-            this.point = new Point();
-            this.point.X = x;
-            this.point.Y = y;
+            this.Position = new Point();
+            this.Position.X = x;
+            this.Position.Y = y;
         }
 
         public bool IsCollided(Point p)
         {
-
+            if (p.X == this.Position.X && p.Y == this.Position.Y)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

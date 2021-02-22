@@ -45,7 +45,7 @@ namespace snake
             // 
             // updateTimer
             // 
-            this.updateTimer.Interval = 250;
+            this.updateTimer.Interval = 175;
             this.updateTimer.Tick += new System.EventHandler(this.updateTimer_Tick);
             // 
             // Form1

@@ -29,13 +29,16 @@ namespace snake
         {
             this.Corners = new List<Corner>();
             this.Corners.Add(new Corner(initialPosition, Direction.Right));
-            this.Corners.Add(new Corner(initialPosition + new Size(30, 0), Direction.Right));
+            this.Corners.Add(new Corner(initialPosition + new Size(3, 0), Direction.Right));
         }
 
-        public void Update()
+        public void Update(bool moveTail=true)
         {
             this.Head.MoveInDirection();
-            this.Tail.MoveInDirection();
+            if (moveTail)
+            {
+                this.Tail.MoveInDirection();
+            }
 
             if (this.Tail.Position == this.Corners[1].Position)
             {
@@ -52,6 +55,15 @@ namespace snake
                 this.Head.Direction = direction;
                 this.Corners.Add(new Corner(this.Head.Position, direction));
             }
+        }
+
+        public bool IsCollided(Point p)
+        {
+            if (p.X == this.Position.X && p.Y == this.Position.Y)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

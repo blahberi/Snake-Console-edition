@@ -26,7 +26,7 @@ namespace snake
 
             this.newDirection = null;
             this.snake = new Snake(new Point(3, 3));
-            this.apple = new Apple(r.Next(1, 16), r.Next(1, 16));
+            this.apple = new Apple(r.Next(0, 49), r.Next(0, 27));
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -39,7 +39,7 @@ namespace snake
             e.Graphics.ScaleTransform(16, 16);
 
             e.Graphics.SmoothingMode = SmoothingMode.None;
-            e.Graphics.FillRectangle(Brushes.Red, apple.point.X, apple.point.Y, 1, 1);
+            e.Graphics.FillRectangle(Brushes.Red, apple.Position.X, apple.Position.Y, 1, 1);
 
             Point? lastCorner = null;
             foreach (Point c in this.snake.SnakeCorners)
@@ -64,16 +64,24 @@ namespace snake
 
         private void updateTimer_Tick(object sender, EventArgs e)
         {
+            bool moveTail = true;
+            // Check for collions
+            if (snake.IsCollided(apple.Position))
+            {
+                moveTail = false;
+                apple.Position.X = r.Next(0, 49);
+                apple.Position.Y = r.Next(0, 27);
+            }
+
             if (this.newDirection != null)
             {
                 snake.ChangeDirection(this.newDirection.Value);
                 this.newDirection = null;
             }
 
-            snake.Update();
 
-            // Check for collions
 
+            snake.Update(moveTail);
 
             board.Refresh();
         }
