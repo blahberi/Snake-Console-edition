@@ -14,10 +14,11 @@ namespace snake
 {
     public partial class Form1 : Form
     {
+        private Direction? newDirection;
 
         private Snake snake;
-        private Direction? newDirection;
         private Apple apple;
+        private Boarder boarder;
 
         private Random r = new Random();
         public Form1()
@@ -27,6 +28,7 @@ namespace snake
             this.newDirection = null;
             this.snake = new Snake(new Point(3, 3));
             this.apple = new Apple(r.Next(0, 35), r.Next(0, 30));
+            this.boarder = new Boarder();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -72,6 +74,18 @@ namespace snake
                 moveTail = false;
                 apple.Position.X = r.Next(0, 35);
                 apple.Position.Y = r.Next(0, 30);
+                while (true)
+                {
+                    if (snake.IsCollided(apple.Position))
+                    {
+                        apple.Position.X = r.Next(0, 35);
+                        apple.Position.Y = r.Next(0, 30);
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
             }
 
             if (snake.IsCollided(snake.Position))
@@ -85,6 +99,10 @@ namespace snake
                 this.newDirection = null;
             }
 
+            if (boarder.IsCollided(snake.Position))
+            {
+                Die();
+            }
 
 
             snake.Update(moveTail);

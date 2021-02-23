@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Apple.cs" />
+    <Compile Include="Boarder.cs" />
     <Compile Include="Corner.cs" />
     <Compile Include="Direction.cs" />
     <Compile Include="DirectionExtensions.cs" />
