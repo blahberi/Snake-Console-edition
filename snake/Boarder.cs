@@ -16,10 +16,10 @@ namespace snake
             this.corners = new List<Point>();
 
             //creating edges
-            this.corners.Add(new Point(0, 0));
-            this.corners.Add(new Point(35, 0));
-            this.corners.Add(new Point(35, 30));
-            this.corners.Add(new Point(0, 30));
+            this.corners.Add(new Point(-1, -1));
+            this.corners.Add(new Point(36, -1));
+            this.corners.Add(new Point(36, 31));
+            this.corners.Add(new Point(-1, 31));
         }
 
         public bool IsCollided(Point p)
