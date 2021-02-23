@@ -19,6 +19,7 @@ namespace snake
         private Snake snake;
         private Apple apple;
         private Boarder boarder;
+        private int scoreCount;
 
         private Random r = new Random();
         public Form1()
@@ -29,11 +30,14 @@ namespace snake
             this.snake = new Snake(new Point(3, 3));
             this.apple = new Apple(r.Next(0, 35), r.Next(0, 30));
             this.boarder = new Boarder();
+            this.scoreCount = 0;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             updateTimer.Enabled = true;
+
+            score.Visible = true;
         }
 
         private void board_Paint(object sender, PaintEventArgs e)
@@ -72,6 +76,10 @@ namespace snake
             if (apple.IsCollided(snake.Position))
             {
                 moveTail = false;
+
+                this.scoreCount++;
+                score.Text = $"score: {this.scoreCount}";
+
                 apple.Position.X = r.Next(0, 35);
                 apple.Position.Y = r.Next(0, 30);
                 while (true)

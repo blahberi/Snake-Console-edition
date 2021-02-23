@@ -32,11 +32,14 @@ namespace snake
             this.components = new System.ComponentModel.Container();
             this.board = new System.Windows.Forms.Panel();
             this.updateTimer = new System.Windows.Forms.Timer(this.components);
+            this.score = new System.Windows.Forms.Label();
+            this.board.SuspendLayout();
             this.SuspendLayout();
             // 
             // board
             // 
             this.board.BackColor = System.Drawing.Color.Black;
+            this.board.Controls.Add(this.score);
             this.board.Dock = System.Windows.Forms.DockStyle.Fill;
             this.board.Location = new System.Drawing.Point(0, 0);
             this.board.Name = "board";
@@ -46,8 +49,19 @@ namespace snake
             // 
             // updateTimer
             // 
-            this.updateTimer.Interval = 175;
+            this.updateTimer.Interval = 150;
             this.updateTimer.Tick += new System.EventHandler(this.updateTimer_Tick);
+            // 
+            // score
+            // 
+            this.score.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.score.ForeColor = System.Drawing.Color.White;
+            this.score.Location = new System.Drawing.Point(13, 13);
+            this.score.Name = "score";
+            this.score.Size = new System.Drawing.Size(165, 33);
+            this.score.TabIndex = 0;
+            this.score.Text = "score: ";
+            this.score.Visible = false;
             // 
             // Form1
             // 
@@ -59,6 +73,7 @@ namespace snake
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+            this.board.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -67,6 +82,7 @@ namespace snake
 
         private System.Windows.Forms.Panel board;
         private System.Windows.Forms.Timer updateTimer;
+        private System.Windows.Forms.Label score;
     }
 }
 
