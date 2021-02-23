@@ -30,9 +30,10 @@ namespace snake
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.board = new System.Windows.Forms.Panel();
-            this.updateTimer = new System.Windows.Forms.Timer(this.components);
             this.score = new System.Windows.Forms.Label();
+            this.updateTimer = new System.Windows.Forms.Timer(this.components);
             this.board.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,21 +48,22 @@ namespace snake
             this.board.TabIndex = 0;
             this.board.Paint += new System.Windows.Forms.PaintEventHandler(this.board_Paint);
             // 
-            // updateTimer
-            // 
-            this.updateTimer.Interval = 150;
-            this.updateTimer.Tick += new System.EventHandler(this.updateTimer_Tick);
-            // 
             // score
             // 
+            this.score.BackColor = System.Drawing.Color.Transparent;
             this.score.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.score.ForeColor = System.Drawing.Color.White;
             this.score.Location = new System.Drawing.Point(13, 13);
             this.score.Name = "score";
             this.score.Size = new System.Drawing.Size(165, 33);
             this.score.TabIndex = 0;
-            this.score.Text = "score: ";
+            this.score.Text = "score: 0";
             this.score.Visible = false;
+            // 
+            // updateTimer
+            // 
+            this.updateTimer.Interval = 150;
+            this.updateTimer.Tick += new System.EventHandler(this.updateTimer_Tick);
             // 
             // Form1
             // 
@@ -69,8 +71,11 @@ namespace snake
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(730, 625);
             this.Controls.Add(this.board);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "snake";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.board.ResumeLayout(false);

@@ -84,7 +84,7 @@ namespace snake
                 apple.Position.Y = r.Next(0, 30);
                 while (true)
                 {
-                    if (snake.IsCollided(apple.Position))
+                    if (snake.IsCollided(apple.Position) || boarder.IsCollided(apple.Position))
                     {
                         apple.Position.X = r.Next(0, 35);
                         apple.Position.Y = r.Next(0, 30);
@@ -140,8 +140,10 @@ namespace snake
         private void Die()
         {
             updateTimer.Enabled = false;
-            MessageBox.Show("GAME OVER :(");
+            MessageBox.Show($"GAME OVER :(\n\nYOUR SCORE IS: {this.scoreCount}");
             snake = new Snake(new Point(3, 3));
+            this.scoreCount = 0;
+            score.Text = "score: 0";
             updateTimer.Enabled = true;
         }
     }
