@@ -66,7 +66,7 @@ namespace snake
                 {
                     if (p.X >= Math.Min(c.X, lastCorner.Value.X) && p.X <= Math.Max(c.X, lastCorner.Value.X))
                     {
-                        if (p.Y >= Math.Min(c.Y, lastCorner.Value.Y) && p.Y <= Math.Min(c.Y, lastCorner.Value.Y))
+                        if (p.Y >= Math.Min(c.Y, lastCorner.Value.Y) && p.Y <= Math.Max(c.Y, lastCorner.Value.Y))
                         {
                             return true;
                         }
