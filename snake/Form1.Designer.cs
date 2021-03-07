@@ -58,7 +58,7 @@ namespace snake
             this.score.Size = new System.Drawing.Size(165, 33);
             this.score.TabIndex = 0;
             this.score.Text = "score: 0";
-            this.score.Visible = false;
+            this.score.Click += new System.EventHandler(this.score_Click);
             // 
             // updateTimer
             // 

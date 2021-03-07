@@ -1,8 +1,8 @@
 ﻿using System.Drawing;
 
-namespace snake
+namespace SnakeGame
 {
-    interface ICollidable
+    public interface ICollidable
     {
         bool IsCollided(Point p);
     }

@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace snake
+namespace SnakeGame
 {
-    class Snake : ICollidable
+    public class Snake : ICollidable
     {
         public Direction Direction
         {
@@ -17,11 +17,11 @@ namespace snake
 
         public Point Position => this.Head.Position;
 
-        public Point[] SnakeCorners => this.Corners.Select(c => c.Position).ToArray();
+        public IEnumerable<Corner> SnakeCorners => this.Corners;
 
         private Corner Head => this.Corners.Last();
 
-        private Corner Tail => this.Corners.First();
+        public Corner Tail => this.Corners.First();
 
         private List<Corner> Corners { get; }
 
@@ -34,6 +34,7 @@ namespace snake
 
         public void Update(bool moveTail=true)
         {
+            System.Diagnostics.Debug.WriteLine($"{this.Head.Position.X}, {this.Head.Position.Y}");
             this.Head.MoveInDirection();
             if (moveTail)
             {
@@ -59,14 +60,18 @@ namespace snake
 
         public bool IsCollided(Point p)
         {
-            Point? lastCorner = null;
-            foreach (Point c in this.SnakeCorners)
+            Corner lastCorner = null;
+            foreach (Corner c in this.SnakeCorners)
             {
-                if (lastCorner != null && c != this.Head.Position)
+                Point cp = c.Position;
+
+                if (lastCorner != null && cp != this.Head.Position)
                 {
-                    if (p.X >= Math.Min(c.X, lastCorner.Value.X) && p.X <= Math.Max(c.X, lastCorner.Value.X))
+                    if (p.X >= Math.Min(cp.X, lastCorner.Position.X) && 
+                        p.X <= Math.Max(cp.X, lastCorner.Position.X))
                     {
-                        if (p.Y >= Math.Min(c.Y, lastCorner.Value.Y) && p.Y <= Math.Max(c.Y, lastCorner.Value.Y))
+                        if (p.Y >= Math.Min(cp.Y, lastCorner.Position.Y) &&
+                            p.Y <= Math.Max(cp.Y, lastCorner.Position.Y))
                         {
                             return true;
                         }

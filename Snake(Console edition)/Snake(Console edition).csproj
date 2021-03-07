@@ -6,4 +6,8 @@
     <RootNamespace>Snake_Console_edition_</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SnakeGame\SnakeGame.csproj" />
+  </ItemGroup>
+
 </Project>

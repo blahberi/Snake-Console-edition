@@ -2,16 +2,14 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace snake
+namespace SnakeGame
 {
-    class Boarder : ICollidable
+    public class Border : ICollidable
     {
         public List<Point> corners { get; }
 
-        public Boarder()
+        public Border()
         {
             this.corners = new List<Point>();
 

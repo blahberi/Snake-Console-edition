@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace snake
+namespace SnakeGame
 {
-    class Apple : ICollidable
+    public class Apple : ICollidable
     {
         public Point Position;
 
