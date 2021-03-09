@@ -13,7 +13,6 @@ namespace Snake_Console_edition_
             ConsolePainter consolePainter = new ConsolePainter();
             Console.CursorVisible = false;
             game.Clear += Die;
-            Console.SetWindowSize(40, 40);
             new ConsoleBorder().DrawBorder(game.border);
 
 

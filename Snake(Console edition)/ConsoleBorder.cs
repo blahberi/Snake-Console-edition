@@ -11,8 +11,10 @@ namespace Snake_Console_edition_
         public void DrawBorder(Border border)
         {
             Console.ForegroundColor = ConsoleColor.Green;
+            this.DrawBorderLine(border.corners[0], Direction.Right, border.corners[1].X);
             this.DrawBorderLine(border.corners[1], Direction.Down, border.corners[2].Y);
             this.DrawBorderLine(border.corners[2], Direction.Left, border.corners[2].X);
+            this.DrawBorderLine(border.corners[3], Direction.Up, border.corners[3].Y);
         }
         private void DrawBorderLine(Point start, Direction direction, int count)
         {
@@ -41,18 +43,9 @@ namespace Snake_Console_edition_
 
             for (int i = 0; i <= count; i++)
             {
-                if (x >= -1 && y >= -1)
-                {
-                    Console.SetCursorPosition(x + 1, y + 1);
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.Write("*");
-                    x += xd;
-                    y += yd;
-                }
-                else if (x >= 0 && y >= 0)
+                if (x >= 0 && y >= 0)
                 {
                     Console.SetCursorPosition(x, y);
-                    Console.ForegroundColor = ConsoleColor.White;
                     Console.Write("*");
                     x += xd;
                     y += yd;

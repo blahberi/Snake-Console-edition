@@ -1,27 +1,20 @@
-﻿using SnakeGame;
+﻿using SnakeForWindows;
+using SnakeGame;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace snake
 {
     public partial class Form1 : Form
     {
         private readonly Game game;
+        private WindowsBorder windowsBorder;
 
         public Form1()
         {
             InitializeComponent();
             this.game = new Game();
             this.game.GameEnded += this.Die;
+            this.windowsBorder = new WindowsBorder();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -35,6 +28,7 @@ namespace snake
 
             IPainter painter = new WindowsPainter(e.Graphics);
             this.game.Draw(painter);
+            this.windowsBorder.DrawBorder(this.game.border, e.Graphics);
         }
 
         private void updateTimer_Tick(object sender, EventArgs e)

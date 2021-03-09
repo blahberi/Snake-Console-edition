@@ -34,7 +34,6 @@ namespace SnakeGame
 
         public void Update(bool moveTail=true)
         {
-            System.Diagnostics.Debug.WriteLine($"{this.Head.Position.X}, {this.Head.Position.Y}");
             this.Head.MoveInDirection();
             if (moveTail)
             {
@@ -49,10 +48,8 @@ namespace SnakeGame
 
         public void ChangeDirection(Direction direction)
         {
-            System.Diagnostics.Debug.WriteLine($"ChangeDirection: {direction}");
             if(this.Head.Direction != direction && !this.Head.Direction.IsOpposite(direction))
             {
-                System.Diagnostics.Debug.WriteLine($"Adding corner");
                 this.Head.Direction = direction;
                 this.Corners.Add(new Corner(this.Head.Position, direction));
             }

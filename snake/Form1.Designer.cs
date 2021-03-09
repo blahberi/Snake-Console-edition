@@ -44,7 +44,7 @@ namespace snake
             this.board.Dock = System.Windows.Forms.DockStyle.Fill;
             this.board.Location = new System.Drawing.Point(0, 0);
             this.board.Name = "board";
-            this.board.Size = new System.Drawing.Size(730, 625);
+            this.board.Size = new System.Drawing.Size(717, 621);
             this.board.TabIndex = 0;
             this.board.Paint += new System.Windows.Forms.PaintEventHandler(this.board_Paint);
             // 
@@ -53,7 +53,7 @@ namespace snake
             this.score.BackColor = System.Drawing.Color.Transparent;
             this.score.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.score.ForeColor = System.Drawing.Color.White;
-            this.score.Location = new System.Drawing.Point(13, 13);
+            this.score.Location = new System.Drawing.Point(27, 23);
             this.score.Name = "score";
             this.score.Size = new System.Drawing.Size(165, 33);
             this.score.TabIndex = 0;
@@ -68,7 +68,7 @@ namespace snake
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(730, 625);
+            this.ClientSize = new System.Drawing.Size(717, 621);
             this.Controls.Add(this.board);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
