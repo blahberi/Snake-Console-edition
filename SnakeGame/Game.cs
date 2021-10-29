@@ -20,7 +20,7 @@ namespace SnakeGame
         {
             this.newDirections = new List<Direction>();
             this.snake = new Snake(new Point(3, 3));
-            this.apple = new Apple(r.Next(0, 34), r.Next(0, 29));
+            this.apple = new Apple(r.Next(1, 19), r.Next(1, 19));
             this.border = new Border();
             this.scoreCount = 0;
             this.Score = $"score: {this.scoreCount}";
@@ -93,15 +93,14 @@ namespace SnakeGame
 
         protected virtual void OnNewApple()
         {
-            this.apple.Position.X = r.Next(0, 34);
-            this.apple.Position.Y = r.Next(0, 29);
+            this.apple.Position.X = r.Next(1, 19);
+            this.apple.Position.Y = r.Next(1, 19);
             while (true)
             {
-                if (this.snake.IsCollided(this.apple.Position) ||
-                    this.border.IsCollided(this.apple.Position))
+                if (this.snake.IsCollided(this.apple.Position))
                 {
-                    this.apple.Position.X = r.Next(0, 34);
-                    this.apple.Position.Y = r.Next(0, 29);
+                    this.apple.Position.X = r.Next(1, 19);
+                    this.apple.Position.Y = r.Next(1, 19);
                 }
                 else
                 {

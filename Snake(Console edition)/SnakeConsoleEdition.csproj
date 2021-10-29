@@ -6,6 +6,10 @@
     <RootNamespace>Snake_Console_edition_</RootNamespace>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\SnakeGame\SnakeGame.csproj" />
   </ItemGroup>

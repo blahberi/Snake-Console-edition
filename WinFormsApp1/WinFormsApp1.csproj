@@ -6,8 +6,4 @@
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\SnakeGame\SnakeGame.csproj" />
-  </ItemGroup>
-
 </Project>

@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <RootNamespace>snake</RootNamespace>
+    <AssemblyName>SnakeUI</AssemblyName>
+    <ApplicationIcon></ApplicationIcon>
+    <Authors>SnakeUI</Authors>
+    <Win32Resource />
+    <Company>SnakeUI</Company>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SnakeGame\SnakeGame.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snake(Console edition)", "Snake(Console edition)\Snake(Console edition).csproj", "{9E68DE21-96D8-4108-BE17-973122266A68}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SnakeConsoleEdition", "Snake(Console edition)\SnakeConsoleEdition.csproj", "{9E68DE21-96D8-4108-BE17-973122266A68}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SnakeGame", "SnakeGame\SnakeGame.csproj", "{37C50F01-1B6F-4E3B-AF10-6AF11A7CBB34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnakeWindows", "SnakeWindows\SnakeWindows.csproj", "{6F3BE99D-41EE-4773-9F50-794B1F0206AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SnakeUI", "SnakeUI\SnakeUI.csproj", "{6F3BE99D-41EE-4773-9F50-794B1F0206AA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

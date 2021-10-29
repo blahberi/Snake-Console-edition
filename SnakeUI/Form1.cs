@@ -8,7 +8,7 @@ namespace snake
     {
         private readonly Game game;
         private WindowsBorder windowsBorder;
-        private int scale;
+        private float scale;
         private int pixelSize;
 
         public Form1()
@@ -18,7 +18,7 @@ namespace snake
             this.game.GameEnded += this.Die;
             this.windowsBorder = new WindowsBorder();
             this.pixelSize = 10;
-            this.scale = 20 / this.pixelSize;
+            this.scale = (float)35 / (float)this.pixelSize;
         }
 
         private void Form1_Load(object sender, EventArgs e)

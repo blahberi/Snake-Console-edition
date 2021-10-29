@@ -1,5 +1,4 @@
-﻿
-namespace snake
+﻿namespace snake
 {
     partial class Form1
     {
@@ -40,11 +39,10 @@ namespace snake
             // 
             this.board.BackColor = System.Drawing.Color.Black;
             this.board.Controls.Add(this.score);
-            this.board.Dock = System.Windows.Forms.DockStyle.Fill;
             this.board.Location = new System.Drawing.Point(0, 0);
             this.board.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.board.Name = "board";
-            this.board.Size = new System.Drawing.Size(717, 621);
+            this.board.Size = new System.Drawing.Size(735, 735);
             this.board.TabIndex = 0;
             this.board.Paint += new System.Windows.Forms.PaintEventHandler(this.board_Paint);
             // 
@@ -53,7 +51,7 @@ namespace snake
             this.score.BackColor = System.Drawing.Color.Transparent;
             this.score.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.score.ForeColor = System.Drawing.Color.White;
-            this.score.Location = new System.Drawing.Point(31, 27);
+            this.score.Location = new System.Drawing.Point(50, 50);
             this.score.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.score.Name = "score";
             this.score.Size = new System.Drawing.Size(192, 38);
@@ -65,16 +63,16 @@ namespace snake
             // 
             this.updateTimer.Tick += new System.EventHandler(this.updateTimer_Tick);
             // 
-            // SnakeForm
+            // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(717, 621);
+            this.ClientSize = new System.Drawing.Size(735, 735);
             this.Controls.Add(this.board);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.MaximizeBox = false;
-            this.Name = "SnakeForm";
+            this.Name = "Form1";
             this.Text = "snake";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);

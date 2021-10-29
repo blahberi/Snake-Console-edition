@@ -15,9 +15,9 @@ namespace SnakeGame
 
             //creating edges
             this.corners.Add(new Point(0, 0));
-            this.corners.Add(new Point(35, 0));
-            this.corners.Add(new Point(35, 30));
-            this.corners.Add(new Point(0, 30));
+            this.corners.Add(new Point(20, 0));
+            this.corners.Add(new Point(20, 20));
+            this.corners.Add(new Point(0, 20));
         }
 
         public bool IsCollided(Point p)
