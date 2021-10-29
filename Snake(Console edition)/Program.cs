@@ -25,8 +25,19 @@ namespace Snake_Console_edition_
                 game.Draw(consolePainter);
             }, state: null, 0, 100);
 
-            ConsoleKeyInfo keyInfo;
+            Thread keyListener = new Thread(() => listenToKeys(game));
+            keyListener.Start();
+        }
 
+        static void Die(Game game)
+        {
+            Console.Clear();
+            new ConsoleBorder().DrawBorder(game.border);
+        }
+
+        static void listenToKeys(ConsoleSnakeGame game)
+        {
+            ConsoleKeyInfo keyInfo;
             do
             {
                 keyInfo = Console.ReadKey(intercept: true);
@@ -47,12 +58,6 @@ namespace Snake_Console_edition_
                 }
             }
             while (keyInfo.Key != ConsoleKey.Escape);
-        }
-
-        static void Die(Game game)
-        {
-            Console.Clear();
-            new ConsoleBorder().DrawBorder(game.border);
         }
     }
 }

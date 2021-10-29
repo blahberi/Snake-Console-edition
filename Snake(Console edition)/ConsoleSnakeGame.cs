@@ -8,9 +8,9 @@ namespace Snake_Console_edition_
 {
     class ConsoleSnakeGame : Game
     {
-        public override void Draw(IPainter painter)
+        public override void Draw(IPainter painter, int pixelSize=0) //pixelSize has no meaning, it has to be there because its an overide for a class that is also used by the ui version
         {
-            base.Draw(painter);
+            base.Draw(painter, pixelSize);
         }
 
         protected override void OnNewApple()

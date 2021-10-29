@@ -6,7 +6,7 @@ namespace Snake_Console_edition_
 {
     class ConsolePainter : IPainter
     {
-        public void DrawApple(Apple apple)
+        public void DrawApple(Apple apple, int pixelSize=0) // i have to do pixelSize=0 because its in the interface
         {
 
             Console.SetCursorPosition(apple.Position.X, apple.Position.Y);
@@ -14,7 +14,7 @@ namespace Snake_Console_edition_
             Console.Write("@");
         }
 
-        public void DrawStripe(Point start, Direction direction, int count)
+        public void DrawStripe(Point start, Direction direction, int count, int pixelSize=0) // i have to do pixelSize=0 because its in the interface
         {
             int xd = 0;
             int yd = 0;

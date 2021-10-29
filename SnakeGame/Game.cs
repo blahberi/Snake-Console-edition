@@ -12,13 +12,13 @@ namespace SnakeGame
         public Border border { get; protected set; }
         protected int scoreCount;
 
-        private Direction? newDirection;
+        private List<Direction> newDirections;
 
         private readonly Random r = new Random();
 
         public Game()
         {
-            this.newDirection = null;
+            this.newDirections = new List<Direction>();
             this.snake = new Snake(new Point(3, 3));
             this.apple = new Apple(r.Next(0, 34), r.Next(0, 29));
             this.border = new Border();
@@ -31,9 +31,9 @@ namespace SnakeGame
 
         public string Score { get; private set; }
 
-        virtual public void Draw(IPainter painter)
+        virtual public void Draw(IPainter painter, int pixelSize)
         {
-            painter.DrawApple(apple);
+            painter.DrawApple(apple, pixelSize);
 
             Corner lastCorner = null;
             foreach (Corner c in this.snake.SnakeCorners)
@@ -45,7 +45,7 @@ namespace SnakeGame
 
                     int size = Math.Abs(end.X - start.X) + Math.Abs(end.Y - start.Y);
 
-                    painter.DrawStripe(lastCorner.Position, lastCorner.Direction, size);
+                    painter.DrawStripe(lastCorner.Position, lastCorner.Direction, size, pixelSize);
                 }
                 lastCorner = c;
             }
@@ -53,7 +53,7 @@ namespace SnakeGame
 
         public void UpdateDirection(Direction direction)
         {
-            this.newDirection = direction;
+            this.newDirections.Add(direction);
         }
 
         virtual public void Update()
@@ -76,10 +76,10 @@ namespace SnakeGame
                 this.Die();
             }
 
-            if (this.newDirection != null)
+            if (this.newDirections.Count != 0)
             {
-                this.snake.ChangeDirection(this.newDirection.Value);
-                this.newDirection = null;
+                this.snake.ChangeDirection(this.newDirections[0]);
+                this.newDirections.RemoveAt(0);
             }
 
             if (this.border.IsCollided(snake.Position))
